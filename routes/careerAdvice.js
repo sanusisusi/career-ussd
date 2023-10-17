@@ -3,26 +3,21 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/', (req, res) => {
-  const { text } = req.body;
-  let response = '';
-
-  switch (text) {
-    case '1':
-      response = 'CON Choosing a Career Path:\nChoosing the right career involves self-assessment, researching different industries, and considering your interests and skills.';
-      break;
-    case '2':
-      response = 'CON Skill Development:\nEnhance your skills by taking online courses, attending workshops, and staying updated with industry trends.';
-      break;
-    case '3':
-      response = 'CON Job Search Tips:\nSearching for a job can be made easier by networking, tailoring your resume for each application, and preparing for interviews.';
-      break;
-    // Add more cases as needed...
-
-    default:
-      response = 'END Invalid input. Please try again.';
-  }
-
-  res.send(response);
+  res.send('CON Career Advice:\n1. Choosing a Career Path\n2. Skill Development\n3. Job Search Tips');
 });
+
+router.post('/1', (req, res) => {
+  res.send('CON Choosing a Career Path:\nChoose the right career by self-assessment and researching different industries.');
+});
+
+router.post('/2', (req, res) => {
+  res.send('CON Skill Development:\nEnhance your skills by taking online courses, attending workshops, and staying updated with industry trends.');
+});
+
+router.post('/3', (req, res) => {
+  res.send('CON Job Search Tips:\nSearching for a job can be made easier by networking, tailoring your resume for each application, and preparing for interviews.');
+});
+
+// Add more routes for career advice as needed...
 
 module.exports = router;

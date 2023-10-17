@@ -3,23 +3,15 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/', (req, res) => {
-  const { text } = req.body;
-  let response = '';
+  res.send('CON Contact Us:\n1. Email\n2. Phone');
+});
 
-  switch (text) {
-    case '1':
-      response = 'CON Contact Career Guidance:\nEmail: info@careerguidance.com\nPhone: +123456789';
-      break;
-    case '2':
-      response = 'END Thank you for contacting us.';
-      break;
-    // Add more cases as needed...
+router.post('/1', (req, res) => {
+  res.send('END Email: sanusiabdulkadir00.com');
+});
 
-    default:
-      response = 'END Invalid input. Please try again.';
-  }
-
-  res.send(response);
+router.post('/2', (req, res) => {
+  res.send('END Phone: +2348162844475');
 });
 
 module.exports = router;
